@@ -5,11 +5,11 @@ resource "aws_instance" "integration" {
     Name = var.aws_name
   }
 
-output "address" {
-  value = aws_instance.integration.public_ip
-}
-
   provisioner "local-exec" {
     command = "echo ${aws_instance.integration.public_ip} >> ./Ansible/inventory.txt"
   }
+}
+
+output "address" {
+  value = aws_instance.integration.public_ip
 }
