@@ -10,3 +10,6 @@ output "address" {
   value = aws_instance.integration.public_ip
 }
 
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.integration.public_ip} >> ./Ansible/inventory.txt"
+  }
