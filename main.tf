@@ -4,7 +4,6 @@ resource "aws_instance" "integration" {
   tags = {
     Name = var.aws_name
   }
-}
 
 output "address" {
   value = aws_instance.integration.public_ip
@@ -13,3 +12,4 @@ output "address" {
   provisioner "local-exec" {
     command = "echo ${aws_instance.integration.public_ip} >> ./Ansible/inventory.txt"
   }
+}
