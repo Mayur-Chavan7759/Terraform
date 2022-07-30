@@ -5,3 +5,8 @@ resource "aws_instance" "integration" {
     Name = var.aws_name
   }
 }
+
+output "address" {
+  value = aws_instance.integration.public_ip
+}
+
