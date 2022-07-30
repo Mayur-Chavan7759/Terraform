@@ -6,7 +6,7 @@ resource "aws_instance" "integration" {
   }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.integration.public_ip} >> inventory.txt"
+    command = "echo ${aws_instance.integration.public_ip} >> ../Ansible/inventory.txt"
   }
 }
 
